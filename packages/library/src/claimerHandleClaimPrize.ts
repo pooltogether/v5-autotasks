@@ -80,7 +80,7 @@ export async function claimerHandleClaimPrize(
   // #4. Start iterating through vaults
   printAsterisks();
   console.log(chalk.blue(`4. Processing vaults ...`));
-  let transactionsPopulated: PopulatedTransaction[] | undefined = [];
+  let populatedTxs: PopulatedTransaction[] | undefined = [];
   for (const vaultAddress of Object.keys(vaultWinners)) {
     printAsterisks();
     console.log(chalk.green(`Vault: '${vaultAddress}'`));
@@ -120,13 +120,13 @@ export async function claimerHandleClaimPrize(
       console.log(chalk.green("Claimer: Add Populated Claim Tx"));
       // TODO: Don't attempt to run tx unless we know for sure it will succeed/ Flashbots?
       const tx = await claimer.populateTransaction.claimPrizes(...Object.values(claimPrizesParams));
-      transactionsPopulated.push(tx);
+      populatedTxs.push(tx);
     } else {
       console.log(chalk.yellow(`Claimer: Not profitable to claim for Vault: '${vaultAddress}'`));
     }
   }
 
-  return transactionsPopulated;
+  return populatedTxs;
 }
 
 const getMinFees = async (

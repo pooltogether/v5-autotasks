@@ -4,5 +4,6 @@ export { logBigNumber, logStringValue, printAsterisks, printSpacer } from "./log
 export { roundTwoDecimalPlaces } from "./math";
 export { getFeesUsd, getEthMarketRateUsd } from "./getFeesUsd";
 export { getTwabControllerSubgraphClient, getSubgraphVaults } from "./subgraphs";
-export { getComplexMulticallResults } from "./multicall";
 export { getWinners } from "./prizePoolMulticall";
+export { getComplexMulticallResults } from "./multicall";
+export { getChunkedFnCalls } from "./multicall-send";
