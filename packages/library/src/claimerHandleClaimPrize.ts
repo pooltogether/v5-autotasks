@@ -40,7 +40,7 @@ type ClaimPrizeContext = {
   feeToken: Token;
 };
 
-const MIN_PROFIT_THRESHOLD_USD = 5; // Only claim if we're going to make at least $5.00
+const MIN_PROFIT_THRESHOLD_USD = 0.1; // Only claim if we're going to make at least $0.10
 
 export async function claimerHandleClaimPrize(
   contracts: ContractsBlob,
